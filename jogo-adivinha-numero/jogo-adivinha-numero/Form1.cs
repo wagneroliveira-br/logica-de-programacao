@@ -45,8 +45,13 @@ namespace jogo_adivinha_numero
                     creditos = creditos - 1;
                     lblCreditos.Text = creditos.ToString();
                     lblResultado.ForeColor = Color.Red;
-                    lblResultado.Text = "KKKKKKKKKK, erro o certo é: " + numeroAleatorio;
+                    lblResultado.Text = "Você errou, o número sorteado foi: " + numeroAleatorio;
                 }
+            }
+            if(creditos == 0)
+            {
+                lblResultado.ForeColor = Color.Red;
+                lblResultado.Text = "Você está sem créditos. Clique no botão recarregar.";
             }
           }
 
@@ -63,6 +68,13 @@ namespace jogo_adivinha_numero
         private void label2_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnRecarregar_Click(object sender, EventArgs e)
+        {
+            tbxNumero.Clear();
+            lblResultado.Text = "Resultado";
+            lblCreditos.Text = "10";
         }
     }
 }
